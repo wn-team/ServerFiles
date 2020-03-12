@@ -1,9 +1,18 @@
 from flask import Flask, render_template, request, flash
+from ftplib import FTP
 import csv
 import os
+import shutil
 
 app = Flask(__name__)
 path ='/var/www/FlaskGitApp/FlaskGitApp'
+
+serverName='100.127.4.217'
+username='wbbprov'
+password='Nhderfnr433$zs'
+FTPdirectoryIn='/Incoming'
+FTPdirectoryOut='/Outgoing'
+
 
 @app.route('/index')
 @app.route('/')
@@ -75,9 +84,9 @@ def form_example1():
 #        filePathTemplate=os.path.join(path,'CSVTemplate')
         basePath="/var/www/FirstGitApp/FirstGitApp/"
 
-        with open(basePath+"CSVTemplate/WNNDDMMYY_Activate_EXAMPLE.csv", mode='r') as csv_file:                      
+        with open(basePath+"CSVTemplate/WNNDDMMYY_Activate_EXAMPLE.csv", mode='r') as csv_file:
             csv_reader=csv.reader(csv_file)
-            header=next(csv_reader) #go in second line, also next(csv_reader)
+            header=next(csv_reader)
             datalist=[row for row in csv_reader]
             data=datalist[0]
 
@@ -86,20 +95,27 @@ def form_example1():
         data[9]=str(ProductOfferID)
         data[30]=str(ELID)
 
-        fileName = 'WNN'+str(CustomerAccountNo)+'.csv'  
+        fileName = 'WNN'+str(CustomerAccountNo)+'.csv'
         filePathIn = basePath+"Incoming/"+fileName
+        filePathWaiting =  basePath+"Waiting/"+fileName
         with open(filePathIn, mode='w') as csv_file:
             csv_writer=csv.writer(csv_file,lineterminator='\r')
             csv_writer.writerow(header)
             csv_writer.writerow(data)
+        shutil.copy(filePathIn, filePathWaiting)
+
+
+        ftp = FTP(serverName) 
+        ftp.login(username,password)  
+        ftp.set_pasv(False) 
+        ftp.cwd(FTPdirectoryIn)
+        with open(filePathIn, "rb") as f:
+            ftp.storbinary('STOR ' + fileName, f,1024)
 
 
 
 
-
-
-
-        return '''Path {}......{}'''.format(filePathTemplate,datalist)
+        return '''FTPdirectoryIn {}......'''.format(ftp.cwd(FTPdirectoryIn))
 
     return render_template('newactivation.html')
 
