@@ -73,6 +73,10 @@ def form_example1():
         ProductOfferID = temp[0]
         fileNameTemplate = 'WNNDDMMYY_Activate_EXAMPLE.csv'
         filePathTemplate=os.path.join(path,'CSVTemplate')
+
+        open("/var/www/FirstGitApp/FirstGitApp/CSVTemplate/WNNDDMMYY_Activate_EXAMPLE.csv", 'r')
+
+
 #        filePathTemplate=os.path.join(path,'CSVTemplate',fileNameTemplate)
 
 
