@@ -40,29 +40,31 @@ def form_example1():
         if ProductOfferID == "":
             error = 'Invalid input'
             flash('-Please select an option-', category='ProductOfferIDsms')
-        if len(CustomerAccountNo) != sum(c.isdigit() for c in CustomerAccountNo$
-            error = 'Invalid input'
-            if len(CustomerAccountNo)-sum(c.isdigit() for c in CustomerAccountN$
-                flash('-Error: {} characters that are not digits-'\
-                      .format(len(CustomerAccountNo)-sum(c.isdigit() for c in C$
 
-        if [len(SIMNo),sum(c.isdigit() for c in SIMNo)] != [17,17]  and SIMNo !$
+        if len(CustomerAccountNo) != sum(c.isdigit() for c in CustomerAccountNo) and CustomerAccountNo != "":
+            error = 'Invalid input'
+            if len(CustomerAccountNo)-sum(c.isdigit() for c in CustomerAccountNo) != 0:
+                flash('-Error: {} characters that are not digits-'\
+                      .format(len(CustomerAccountNo)-sum(c.isdigit() for c in CustomerAccountNo)), category='CustomerAccountNosms')
+
+        if [len(SIMNo),sum(c.isdigit() for c in SIMNo)] != [17,17]  and SIMNo != "":
             error = 'Invalid input'
             if (len(SIMNo)-sum(c.isdigit() for c in SIMNo)) != 0:
                 flash('-Error: {} characters that are not digits-'\
-                      .format(len(SIMNo)-sum(c.isdigit() for c in SIMNo)), cate$
+                      .format(len(SIMNo)-sum(c.isdigit() for c in SIMNo)), category='SIMNosms')
             if sum(c.isdigit() for c in SIMNo) != 17:
                 flash('-Error: Inserted data has {} digits intead 17 digits-'
-                      .format(sum(c.isdigit() for c in SIMNo)), category='SIMNo$
+                      .format(sum(c.isdigit() for c in SIMNo)), category='SIMNosms')
+
 
         if [len(ELID),sum(c.isdigit() for c in ELID)] != [9,9] and ELID != "":
             error = 'Invalid input'
             if (len(ELID)-sum(c.isdigit() for c in ELID)) != 0:
                 flash('-Error: {} characters that are not digits-'\
-                      .format(len(ELID)-sum(c.isdigit() for c in ELID)), catego$
+                      .format(len(ELID)-sum(c.isdigit() for c in ELID)), category='ELIDsms')
             if sum(c.isdigit() for c in ELID) != 9:
                 flash('-Error: Inserted data has {} digits intead 9 digits-'\
-                      .format(sum(c.isdigit() for c in ELID)), category='ELIDsm$
+                      .format(sum(c.isdigit() for c in ELID)), category='ELIDsms')
 
         if error != None:
             return render_template('newactivation.html', error=error)
@@ -74,6 +76,7 @@ def form_example1():
         return '''Path {}......'''.format(filePathTemplate)
 
     return render_template('newactivation.html')
+
 
 
 
