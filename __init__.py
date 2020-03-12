@@ -1,5 +1,6 @@
 from flask import Flask, render_template, request, flash
 from ftplib import FTP
+from time import sleep
 import csv
 import os
 import shutil
@@ -111,6 +112,15 @@ def form_example1():
         ftp.cwd(FTPdirectoryIn)
         with open(filePathIn, "rb") as f:
             ftp.storbinary('STOR ' + fileName, f,1024)
+
+        fileNameRES = []
+        with os.scandir(basePath+"Waiting") as entries:
+            for entry in entries:
+                if entry.is_file():
+                    fileNameRES.append(entry.name)
+
+        ftp.cwd(FTPdirectoryOut)
+        sleep(60)            
 
 
 
