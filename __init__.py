@@ -72,16 +72,18 @@ def form_example1():
         temp = ProductOfferID.split()
         ProductOfferID = temp[0]
         fileNameTemplate = 'WNNDDMMYY_Activate_EXAMPLE.csv'
-        filePathTemplate=os.path.join(path,'CSVTemplate',fileNameTemplate)
+        filePathTemplate=os.path.join(path,'CSVTemplate')
+#        filePathTemplate=os.path.join(path,'CSVTemplate',fileNameTemplate)
 
 
         if os.path.exists(filePathTemplate):
-            try:
-                with open(filePathTemplate, 'rb') as f:
-                    csv_reader=csv.reader(f)
-                return '''file is open'''
-            except:
-                return '''not possible open file'''
+            return '''path exist'''
+#            try:
+#                with open(filePathTemplate, 'rb') as f:
+#                    csv_reader=csv.reader(f)
+#                return '''file is open'''
+#           except:
+#                return '''not possible open file'''
 
 
         return '''Path {}......'''.format(filePathTemplate)
