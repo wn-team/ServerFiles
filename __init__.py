@@ -76,7 +76,7 @@ def form_example1():
 #        filePathTemplate=os.path.join(path,'CSVTemplate',fileNameTemplate)
 
 
-        if os.path.exists(filePathTemplate):
+        if os.path.exists(path):
             return '''path exist'''
 #            try:
 #                with open(filePathTemplate, 'rb') as f:
