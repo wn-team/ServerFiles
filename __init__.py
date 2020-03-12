@@ -74,14 +74,19 @@ def form_example1():
         fileNameTemplate = 'WNNDDMMYY_Activate_EXAMPLE.csv'
         filePathTemplate=os.path.join(path,'CSVTemplate')
 
-        open("/var/www/FirstGitApp/FirstGitApp/CSVTemplate/WNNDDMMYY_Activate_EXAMPLE.csv", 'r')
+#        open("/var/www/FirstGitApp/FirstGitApp/CSVTemplate/WNNDDMMYY_Activate_EXAMPLE.csv", 'r')
+        with open("/var/www/FirstGitApp/FirstGitApp/CSVTemplate/WNNDDMMYY_Activate_EXAMPLE.csv", mode='r') as csv_file:                      
+            csv_reader=csv.reader(csv_file)
+            header=next(csv_reader) #go in second line, also next(csv_reader)
+            datalist=[row for row in csv_reader]
+            data=datalist[0]
 
 
 #        filePathTemplate=os.path.join(path,'CSVTemplate',fileNameTemplate)
 
 
-        if os.path.exists(path):
-            return '''path exist'''
+#        if os.path.exists(path):
+#            return '''path exist'''
 #            try:
 #                with open(filePathTemplate, 'rb') as f:
 #                    csv_reader=csv.reader(f)
@@ -90,7 +95,7 @@ def form_example1():
 #                return '''not possible open file'''
 
 
-        return '''Path {}......'''.format(filePathTemplate)
+        return '''Path {}......{}'''.format(filePathTemplate,datalist)
 
     return render_template('newactivation.html')
 
