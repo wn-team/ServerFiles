@@ -72,27 +72,31 @@ def form_example1():
         temp = ProductOfferID.split()
         ProductOfferID = temp[0]
         fileNameTemplate = 'WNNDDMMYY_Activate_EXAMPLE.csv'
-        filePathTemplate=os.path.join(path,'CSVTemplate')
+#        filePathTemplate=os.path.join(path,'CSVTemplate')
+        basePath="/var/www/FirstGitApp/FirstGitApp/"
 
-#        open("/var/www/FirstGitApp/FirstGitApp/CSVTemplate/WNNDDMMYY_Activate_EXAMPLE.csv", 'r')
-        with open("/var/www/FirstGitApp/FirstGitApp/CSVTemplate/WNNDDMMYY_Activate_EXAMPLE.csv", mode='r') as csv_file:                      
+        with open(basePath+"CSVTemplate/WNNDDMMYY_Activate_EXAMPLE.csv", mode='r') as csv_file:                      
             csv_reader=csv.reader(csv_file)
             header=next(csv_reader) #go in second line, also next(csv_reader)
             datalist=[row for row in csv_reader]
             data=datalist[0]
 
+        data[3]='WNN'+str(CustomerAccountNo)
+        data[8]=str(SIMNo)
+        data[9]=str(ProductOfferID)
+        data[30]=str(ELID)
 
-#        filePathTemplate=os.path.join(path,'CSVTemplate',fileNameTemplate)
+        fileName = 'WNN'+str(CustomerAccountNo)+'.csv'  
+        filePathIn = basePath+"Incoming/"+fileName
+        with open(filePathIn, mode='w') as csv_file:
+            csv_writer=csv.writer(csv_file,lineterminator='\r')
+            csv_writer.writerow(header)
+            csv_writer.writerow(data)
 
 
-#        if os.path.exists(path):
-#            return '''path exist'''
-#            try:
-#                with open(filePathTemplate, 'rb') as f:
-#                    csv_reader=csv.reader(f)
-#                return '''file is open'''
-#           except:
-#                return '''not possible open file'''
+
+
+
 
 
         return '''Path {}......{}'''.format(filePathTemplate,datalist)
