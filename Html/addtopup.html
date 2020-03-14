@@ -1,0 +1,274 @@
+
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Wireless-Nation-project</title>
+<script>
+	
+	function demo3(){
+		//通过元素的名称获取元素
+		var arrInp = document.getElementsByTagName("input");
+		document.body.style.cursor='wait';
+	//	document.body.style.cursor='default';
+	}	
+
+
+</script>
+
+<style type="text/css">
+*{
+	margin: 0;
+	padding: 0;
+}
+
+
+
+#head {
+	height: 120px;
+	width: 100%;
+	background-color: gray;
+	background-color: rgba(255,255,255,0.4);
+	//text-align: left;
+	position: relative;
+//	vertical-align: left;
+}
+
+
+
+#main {
+     height:750px;
+     weight:100%;
+   //  background-color: blue;
+      background-image: url(static/img/003.png);
+      background-size:100% 100%;
+      background-size:cover;
+
+}
+
+
+#middle {
+     height:50px;
+     weight:100%;
+     margin-top: 20px;
+	 margin-button: 40px;
+
+}
+
+#body-main .line{
+	margin-left:15px;
+	//margin-left:5px;
+	/*border:1px solid red;*/
+	height:40px;
+	width:100%;
+	/*line-height:100px;*/
+	padding-top:6px;
+//	background-color: red;
+    padding-left:10px;
+
+}
+
+
+#body-main .line .search{
+	color: black;
+	font-size:14px;
+	width: 160px;
+	height:36px;
+/*	background-color:green;  */
+	vertical-align: left;
+	display:inline-block;
+}
+
+
+#body-main.con .qaq{
+//	color: black;
+//	font-size:14px;
+	width: 660px;
+	height:66px;  
+	vertical-align: left;
+	display:inline-block;
+	background-color:blue;
+    display:-moz-inline-box;
+    display:inline-block;
+}
+
+#head .line .qaq-one{
+//	color: black;
+//	font-size:14px;
+	width: 660px;
+	height:66px;
+/*	background-color:green;  */
+	vertical-align: left;
+	display:inline-block;
+//	background-color:#fc0;
+    display:-moz-inline-box;
+    display:inline-block;
+    
+
+#body-main .line-button .content .ul li{
+	height: 38px;
+    width: 160px;
+    float:left;
+    line-height:38px;
+    text-align: center;
+
+
+
+#body-main .c1{
+	width:100px;
+	height:100px;
+	display:inline-block;
+	}
+	
+	
+#body-main .con{margin:0; auto;width:800px;height:500px;}
+#body-main .con div{width:25%;height:100%;float:left;}
+
+#body-main .line .search{
+	color: black;
+	font-size:14px;
+	width: 160px;
+	height:36px;
+/*	background-color:green;  */
+	vertical-align: right;
+	display:inline-block;
+}
+
+</style>
+</head>
+
+<body>
+<div id="main">
+<form  method="POST" autocomplete="off">
+   <div class="header" id="head">
+  <div class="line">
+		<!--		<span class="qaq">
+					<img src="static/img/logo.png" height="120" width="180" >
+				</span>
+				<span class="qaq-one"  width="500px" text-align="center" background="red">
+		     	<font size=6>SPARK 4G INTERIM PROVISIONING PORTAL  </font>	</span>  -->
+		<table border="0" cellpadding="0px" cellspacing="0"  width="100%" height ="100%" align="left">
+			<tr>
+				<th cellpadding="0" cellspacing="0" align="left"> <img src="static/img/logo.png" height="120" width="180" > </th>
+				<th face="SimHei" lign="left"><font size="6" >SPARK 4G INTERIM PROVISIONING PORTAL</font size></th>
+			</tr>
+			</table>		
+			</div>
+	</div>
+
+
+	<div id="middle">
+	<p><h3> New Activation </h3> </p>
+	</div>
+		<div id="body-main">
+			<div class="line">
+				<div class="content">
+			<span class="search">	<lable> New Activation</lable> </span>
+			<span>	 <input name="CustomerAccountNo" type="text" value="" style="width:200px"></span>
+				 <span class="my_order_cart">
+				
+				</span>
+				</div>
+			</div>
+
+			<div class="line">
+				<span class="search">
+					MSIS DN：
+				</span>
+				<span class="my_order_cart">
+				 <input name="SIMNo" type="text" value=" " style="width:200px">
+				</span>
+				<span> 
+			
+				</span>
+			</div>
+
+			<div class="line">
+				<span class="search">
+					Product Offer Id:
+				</span>
+				<span class="my_order_cart">
+				<select name="ProductOfferID"  style="width:200px">
+				
+		<!--		<option selected value=""></option>   -->
+                    <option value="WWBN05001 - 60GB Naked">WWBN05001 - 60GB Naked</option>
+                    <option value="WWBN05003 - 240GB Naked Urban">WWBN05003 - 240GB Naked Urban</option>
+                    <option value="WWBN05002 - 120GB Naked">WWBN05002 - 120GB Naked</option>
+                    <option value="WWBN05006 - 600GB Naked Metro">WWBN05006 - 600GB Naked Metro</option>
+                </select>
+				</span>
+				<span>  </span>
+			</div>
+
+			<div class="line">
+				<span class="search">
+					Product:
+				</span>
+				<span class="my_order_cart">
+				 <input name="" type="text" value="" style="width:200px"> </input>
+				</span>
+				<span>  </span>
+			</div>
+
+     <!--      
+				<div class="con" width=800px height=500px>
+	            <span class="qaq">
+					<input type="button" onclick="location.href='index'" value="Cancel" />
+				</span>
+				<span class="made"> <input type=submit value="Submit"> </span>
+	</div> -->
+	<!--	<div>	
+			<table weight="50%">
+			<tr>
+				<td><input type="button" onclick="location.href='index'" value="Cancel"></td>
+				<td align="left"><input type=submit value="Submit"></td>
+			</tr>
+			
+		</table>
+		</div>    -->
+			
+<!--		<div class="line">
+				<span class="bad">
+					makegejbiafa:
+				</span>
+				<span class="my_order_cart">
+				 <input name="" type="button" value=""> </input>
+				</span>
+			</div>  -->
+<!-- #body-main .line-button .content .ul li-->		
+
+<!--	 <div class="line-button">
+	  <ul>
+	  <li>  <input type="button"  value="Cancel">  </li>
+	  <li>  <input type="button"  value="submit"></li>
+	  </ul>
+  	 </div>	-->
+	 <!--
+	 <div style="width:800px;height:300px;?border-width:1px;border-style:solid;border-color:#FFDEAD;">
+		<div style="background-color:#6495ED;width:500px;height:100px;display:inline;margin-right=50px">1</div>
+		<div style="background-color:#C0FF3E;width:200px;height:100px;display:inline;margin-left=50px;">2</div>
+		</div>
+		
+			<div style="width:700px;height:500px;?border-width:1px;border-style:solid;border-color:#FFDEAD;margin-left=60px;padding-left:60px;padding-right:180px">	
+		-->
+		
+		
+		<div id ="button-out">
+		<div style="width:250px;height:50px;border-width:0px;border-style:solid;margin-left=60px;padding-left:60px;padding-right:180px">
+		<div style="width:50px;height:100px;float:left;margin-left=60px;">
+		<input type="button" onclick="location.href='index'" value="Cancel">
+		</div>
+		<div style="width:50px;height:100px;float:right;">
+		<input type="button" value="Submit" onclick="demo3()">
+		</div>
+	    </div>
+		
+		
+		</div>
+		
+</form>		
+		
+</div>
+
+</body>
+</html>
